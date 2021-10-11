@@ -3,6 +3,33 @@ FHIR interfaces via Bioconductor in AnVIL
 
 New container with SMART infrastructure.
 
+The R package at [github.com/vjcitn/AnvBiocFHIR](https://github.com/vjcitn/AnvBiocFHIR) uses basilisk
+to pin down all details of python infrastructure used to interface to the FHIR services in AnVIL.
+
+## Using the SMART FHIR client infrastructure with R
+
+We use the docker container `vjcitn/anvbiocfhir:0.0.2`.
+
+To generate `"1000g-high-coverage-2019"`, we can use
+
+```
+library(AnvBiocFHIR)
+library(reticulate)
+x = abfhir_demo()
+fc = import("fhirclient") # this should be part of abfhir_setup
+# py_help(x$fhir$client)
+ll = list(app_id = "my_web_app", 
+  api_base=paste("https://healthcare.googleapis.com/v1/projects/gcp-testing-308520/",
+      "locations/us-east4/datasets/testset/fhirStores/fhirstore/fhir", sep=""))
+FHIRclient = x$fhir$client$FHIRClient
+smartBase = FHIRclient(settings=ll)
+smartBase$ready
+rs = fc$models$researchstudy
+rs$ResearchStudy$where(py_dict("", ""))$perform_resources(smartBase$server)[[1]]$title
+```
+
+## Historical material
+
 We use the docker container `vjcitn/anvbiocfhir:0.0.1`.
 
 ### Verifying python infrastructure
