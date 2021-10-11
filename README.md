@@ -6,6 +6,23 @@ New container with SMART infrastructure.
 The R package at [github.com/vjcitn/AnvBiocFHIR](https://github.com/vjcitn/AnvBiocFHIR) uses basilisk
 to pin down all details of python infrastructure used to interface to the FHIR services in AnVIL.
 
+## Quick view of [open] patient data
+
+![](https://storage.googleapis.com/bioc-anvil-images/jsoned.png)
+
+produced with this workspace via
+
+```
+> library(AnvBiocFHIR)
+> library(reticulate)
+> x = abfhir_demo()
+> fc = import("fhirclient")
+> pp = fc$models$patient$Patient
+> pats = pp$where(py_dict("", ""))$perform_resources(smartBase$server)
+> jpats = lapply(pats, function(x) x$as_json())
+> listviewer::jsonedit(jpats) # may need to install listviewer package 
+```
+
 ## Using the SMART FHIR client infrastructure with R
 
 ### Impromptu creation and use of SMART FHIRClient -- note FIXME
