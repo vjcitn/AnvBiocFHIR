@@ -28,6 +28,33 @@ rs = fc$models$researchstudy
 rs$ResearchStudy$where(py_dict("", ""))$perform_resources(smartBase$server)[[1]]$title
 ```
 
+Of greater interest is the intermediate information in
+```
+res = rs$ResearchStudy$where(py_dict("", ""))$perform_resources(smartBase$server)
+```
+```
+> names(res[[1]])
+ [1] "arm"                   "as_json"               "category"              "condition"             "contact"              
+ [6] "contained"             "create"                "delete"                "description"           "didResolveReference"  
+[11] "elementProperties"     "enrollment"            "extension"             "focus"                 "id"                   
+[16] "identifier"            "implicitRules"         "keyword"               "language"              "location"             
+[21] "meta"                  "modifierExtension"     "note"                  "objective"             "origin_server"        
+[26] "owningBundle"          "owningResource"        "partOf"                "period"                "phase"                
+[31] "primaryPurposeType"    "principalInvestigator" "protocol"              "read"                  "read_from"            
+[36] "reasonStopped"         "relatedArtifact"       "relativeBase"          "relativePath"          "resolvedReference"    
+[41] "resource_type"         "search"                "site"                  "sponsor"               "status"               
+[46] "text"                  "title"                 "update"                "update_with_json"      "where"                
+[51] "with_json"             "with_json_and_owner"  
+```
+
+Very little of this schema has been populated:
+```
+> names(res[[1]]$as_json())
+[1] "id"                    "meta"                  "extension"             "identifier"            "principalInvestigator"
+[6] "sponsor"               "status"                "title"                 "resourceType"         
+```
+
+
 ## Historical material
 
 We use the docker container `vjcitn/anvbiocfhir:0.0.1`.
