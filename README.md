@@ -8,6 +8,8 @@ to pin down all details of python infrastructure used to interface to the FHIR s
 
 ## Using the SMART FHIR client infrastructure with R
 
+### Impromptu creation and use of SMART FHIRClient -- note FIXME
+
 We use the docker container `vjcitn/anvbiocfhir:0.0.2`.
 
 To generate `"1000g-high-coverage-2019"`, we can use
@@ -16,7 +18,7 @@ To generate `"1000g-high-coverage-2019"`, we can use
 library(AnvBiocFHIR)
 library(reticulate)
 x = abfhir_demo()
-fc = import("fhirclient") # this should be part of abfhir_setup
+fc = import("fhirclient") # FIXME: this should be part of abfhir_setup
 # py_help(x$fhir$client)
 ll = list(app_id = "my_web_app", 
   api_base=paste("https://healthcare.googleapis.com/v1/projects/gcp-testing-308520/",
@@ -27,6 +29,9 @@ smartBase$ready
 rs = fc$models$researchstudy
 rs$ResearchStudy$where(py_dict("", ""))$perform_resources(smartBase$server)[[1]]$title
 ```
+
+FIXME: the abfhir_demo is a quick-and-dirty demonstration of basilisk.  The interface
+should arrange import of `fhirclient` as well, but more design work is needed, Oct 11 2021.
 
 Of greater interest is the intermediate information in
 ```
@@ -53,7 +58,20 @@ Very little of this schema has been populated:
 [1] "id"                    "meta"                  "extension"             "identifier"            "principalInvestigator"
 [6] "sponsor"               "status"                "title"                 "resourceType"         
 ```
+### Probing the service
 
+The `prepare` and `authorize_url` methods are discussed at the [SMART client README](https://github.com/smart-on-fhir/client-py).
+
+```
+> smartBase = FHIRclient(settings=ll)
+> names(smartBase)
+ [1] "app_id"          "app_secret"      "authorize_url"   "desired_scope"  
+ [5] "from_state"      "handle_callback" "human_name"      "launch_context" 
+ [9] "launch_token"    "patient"         "patient_id"      "prepare"        
+[13] "ready"           "reauthorize"     "redirect"        "reset_patient"  
+[17] "save_state"      "scope"           "server"          "state"          
+[21] "wants_patient" 
+```
 
 ## Historical material
 
