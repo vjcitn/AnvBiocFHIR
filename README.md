@@ -21,8 +21,7 @@ produced with this workspace via
 > library(AnvBiocFHIR)
 > library(reticulate)
 > x = abfhir_demo()
-> fc = import("fhirclient")
-> pp = fc$models$patient$Patient
+> pp = x$fhirclient$models$patient$Patient
 > pats = pp$where(py_dict("", ""))$perform_resources(smartBase$server)
 > jpats = lapply(pats, function(x) x$as_json())
 > listviewer::jsonedit(jpats) # may need to install listviewer package 
@@ -48,20 +47,17 @@ To generate `"1000g-high-coverage-2019"`, we can use
 library(AnvBiocFHIR)
 library(reticulate)
 x = abfhir_demo()
-fc = import("fhirclient") # FIXME: this should be part of abfhir_setup
-# py_help(x$fhir$client)
+# py_help(x$anvil$fhir$client)
 ll = list(app_id = "my_web_app", 
   api_base=paste("https://healthcare.googleapis.com/v1/projects/gcp-testing-308520/",
       "locations/us-east4/datasets/testset/fhirStores/fhirstore/fhir", sep=""))
-FHIRclient = x$fhir$client$FHIRClient
+FHIRclient = x$anvil$fhir$client$FHIRClient
 smartBase = FHIRclient(settings=ll)
 smartBase$ready
-rs = fc$models$researchstudy
+rs = x$fhirclient$models$researchstudy
 rs$ResearchStudy$where(py_dict("", ""))$perform_resources(smartBase$server)[[1]]$title
 ```
 
-FIXME: the abfhir_demo is a quick-and-dirty demonstration of basilisk.  The interface
-should arrange import of `fhirclient` as well, but more design work is needed, Oct 11 2021.
 
 Of greater interest is the intermediate information in
 ```
