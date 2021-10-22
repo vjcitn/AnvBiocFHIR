@@ -10,7 +10,7 @@ abfhir_demo = function() {
  proc = basilisk::basiliskStart(abfhirenv)
  on.exit(basilisk::basiliskStop(proc))
  basilisk::basiliskRun(proc, function() {
-   anv = reticulate::import("anvil")
+   anv = list(anvil=reticulate::import("anvil"), fhirclient=reticulate::import("fhirclient"))
    anv
    })
 }
