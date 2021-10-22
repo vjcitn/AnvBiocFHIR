@@ -34,9 +34,9 @@ produced with this workspace via
 We use the docker container `vjcitn/anvbiocfhir:0.0.2`.
 
 
-Use
+Use (after verifying all version tags in the following)
 ```
-cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.5.0/AnvBiocFHIR/0.0.1/abfhirenv/lib/python3.7/site-packages
+cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.5.0/AnvBiocFHIR/0.0.2/abfhirenv/lib/python3.7/site-packages
 ```
 
 in the terminal to set up key infrastructure.
