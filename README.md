@@ -27,7 +27,7 @@ x = try(AnvBiocFHIR::abfhir_demo()) # will fail after some time!
 ```
 This may take some time to construct a conda environment.  (As the infrastructure matures we will be able to skip this step, but not now.)
 
-Use (after verifying values of version tags)
+Use (after verifying values of version tags)  the following in the Rstudio terminal:
 ```
 cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.5.0/AnvBiocFHIR/0.0.3/abfhirenv/lib/python3.7/site-packages
 ```
@@ -39,8 +39,6 @@ x = try(AnvBiocFHIR::abfhir_demo())
 Because the python infrastructure migrated to the basilisk cache, this should now succeed.  We will try to reduce the complexity
 of these operations.
 
-
-in the terminal to set up key infrastructure.
 
 ## Demonstration
 
