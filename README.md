@@ -29,7 +29,7 @@ This may take some time to construct a conda environment.  (As the infrastructur
 
 Use (after verifying values of version tags)
 ```
-cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.5.0/AnvBiocFHIR/0.0.2/abfhirenv/lib/python3.7/site-packages
+cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.5.0/AnvBiocFHIR/0.0.3/abfhirenv/lib/python3.7/site-packages
 ```
 
 in the terminal to set up key infrastructure.
@@ -48,9 +48,9 @@ rs = dem$fhirclient$models$researchstudy
 # [5] "domainresource"         "fhirreference"          "identifier"             "period"                
 # [9] "relatedartifact"        "ResearchStudy"          "ResearchStudyArm"       "ResearchStudyObjective"
 #[13] "sys"                   
-#rs$ResearchStudy$where(py_dict("", ""))$perform_resources(sm$server)[[1]]
+#rs$ResearchStudy$where(reticulate::py_dict("", ""))$perform_resources(sm$server)[[1]]
 #<fhirclient.models.researchstudy.ResearchStudy>
-res_100 = rs$ResearchStudy$where(py_dict("", ""))$perform_resources(sm$server)
+res_100 = rs$ResearchStudy$where(reticulate::py_dict("", ""))$perform_resources(sm$server)
 unlist(lapply(res_100[1:5], function(x) x$title))
 ```
 
