@@ -1,6 +1,8 @@
 #' long URL string for server announced at https://the-anvil.slack.com/archives/C02HU4GT04B/p1634236625021500
+#' @param tag character(1) name of store, defaults to "public"
 #' @export
-anvurl = function() "https://healthcare.googleapis.com/v1beta1/projects/fhir-test-9-328816/locations/us-west2/datasets/anvil-test/fhirStores/public/fhir"
+anvurl = function (tag="public") 
+sprintf("https://healthcare.googleapis.com/v1beta1/projects/fhir-test-9-328816/locations/us-west2/datasets/anvil-test/fhirStores/%s/fhir", tag)
 
 #' long URL string for Asymetrik-based FHIR server
 #' @export
