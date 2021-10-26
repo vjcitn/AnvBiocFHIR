@@ -4,24 +4,18 @@
 \alias{anv_fhir_get_stores}
 \title{retrieve references to all stores}
 \usage{
-anv_fhir_get_stores(
-  url = test_stores_url(),
-  count_str = "1000",
-  pyrefs = abfhir_demo()
-)
+anv_fhir_get_stores(url = test_stores_url(), as.list = TRUE)
 }
 \arguments{
 \item{url}{character(1) URL for a FHIR store collection}
 
-\item{count_str}{character(1) `_count` value for `where` in ResearchStudy}
-
-\item{pyrefs}{list of Module references (anvil, fhirclient)}
+\item{as.list}{logical(1) if TRUE convert JSON to list}
 }
 \description{
 retrieve references to all stores
 }
 \examples{
 allst = anv_fhir_get_stores()
-length(allst)
-head(sapply(allst, function(x) x$title))
+length(allst[[1]])
+head(sapply(allst[[1]], function(x) x$title))
 }
