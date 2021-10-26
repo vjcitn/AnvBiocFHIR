@@ -26,3 +26,19 @@ head(allst)
 ```
 
 ## Resources in a store
+
+```{r lkres}
+rgru = store_resources(tail(allst)[1])
+length(rgru)
+class(rgru[[1]])
+```
+A store has one or more ResearchStudy instances.
+
+```{r lklk}
+sapply(allst[1:4], function(x)length(store_resources(x)))
+```
+
+Methods for an instance.
+```{r lkm}
+names(rgru[[1]])
+```
