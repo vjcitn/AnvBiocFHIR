@@ -45,11 +45,11 @@ test_stores_url = function() "https://healthcare.googleapis.com/v1beta1/projects
 #' @examples 
 #' allst = anv_fhir_get_stores()
 #' length(allst[[1]])
-#' head(sapply(allst[[1]], function(x) x$title))
+#' head(sapply(allst[[1]], function(x) basename(x$name)))
 #' @export
 anv_fhir_get_stores = function(url=test_stores_url(), as.list=TRUE) {
   tok = get_gcp_token()
-  dat = httr::GET(url, add_headers(Authorization = paste("Bearer", tok, sep = " ")))
+  dat = httr::GET(url, httr::add_headers(Authorization = paste("Bearer", tok, sep = " ")))
   httr::content(dat) 
 }
 

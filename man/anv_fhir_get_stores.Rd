@@ -17,5 +17,5 @@ retrieve references to all stores
 \examples{
 allst = anv_fhir_get_stores()
 length(allst[[1]])
-head(sapply(allst[[1]], function(x) x$title))
+head(sapply(allst[[1]], function(x) basename(x$name)))
 }
