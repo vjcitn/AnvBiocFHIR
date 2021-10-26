@@ -41,13 +41,12 @@ test_stores_url = function() "https://healthcare.googleapis.com/v1beta1/projects
 #' @importFrom httr GET
 #' @importFrom httr content
 #' @param url character(1) URL for a FHIR store collection
-#' @param as.list logical(1) if TRUE convert JSON to list
 #' @examples 
 #' allst = anv_fhir_get_stores()
 #' length(allst[[1]])
 #' head(sapply(allst[[1]], function(x) basename(x$name)))
 #' @export
-anv_fhir_get_stores = function(url=test_stores_url(), as.list=TRUE) {
+anv_fhir_get_stores = function(url=test_stores_url()) {
   tok = get_gcp_token()
   dat = httr::GET(url, httr::add_headers(Authorization = paste("Bearer", tok, sep = " ")))
   httr::content(dat) 

@@ -4,12 +4,10 @@
 \alias{anv_fhir_get_stores}
 \title{retrieve references to all stores}
 \usage{
-anv_fhir_get_stores(url = test_stores_url(), as.list = TRUE)
+anv_fhir_get_stores(url = test_stores_url())
 }
 \arguments{
 \item{url}{character(1) URL for a FHIR store collection}
-
-\item{as.list}{logical(1) if TRUE convert JSON to list}
 }
 \description{
 retrieve references to all stores
