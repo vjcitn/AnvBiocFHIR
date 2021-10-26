@@ -1,0 +1,28 @@
+---
+title: "AnvBiocFHIR -- FHIR demonstrations with AnVIL"
+author: "Vincent J. Carey, stvjc at channing.harvard.edu"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{AnvBiocFHIR -- FHIR demonstrations with AnVIL}
+  %\VignetteEncoding{UTF-8}
+output:
+  BiocStyle::html_document:
+    number_sections: yes
+    toc: yes
+---
+
+# Introduction
+
+This package uses pyAnVIL and SMART FHIR python infrastructure to work with
+FHIR resources in AnVIL.
+
+# FHIR stores
+
+```{r do1}
+library(AnvBiocFHIR)
+allst = list_stores()
+head(allst)
+```
+
+## Resources in a store
