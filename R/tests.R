@@ -52,6 +52,6 @@ anv_fhir_get_stores = function(url=test_stores_url(), count_str = "1000", pyrefs
         fhirurl = url) 
   stopifnot(sm$ready)
   rs = pyrefs$fhirclient$models$researchstudy
-  rs$ResearchStudy$where(py_dict("_count", count_str))$perform_resources(smartBase$server)
+  rs$ResearchStudy$where(py_dict("_count", count_str))$perform_resources(sm$server)
 }
 
