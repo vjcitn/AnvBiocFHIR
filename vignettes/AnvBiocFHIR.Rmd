@@ -43,3 +43,12 @@ Methods for an instance.
 ```{r lkm}
 names(rgru[[1]])
 ```
+
+## Patients in a store
+
+```{r dopats}
+p1 = anv_fhir_test_list_patients(anvurl("phs001272-DS-CSD-MDS"))
+p1$title
+length(p1$pats)
+```
+
