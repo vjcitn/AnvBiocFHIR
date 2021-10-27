@@ -52,4 +52,27 @@ anv_fhir_get_stores = function(url=test_stores_url()) {
   httr::content(dat) 
 }
 
-
+#' retrieve patients in a ResearchStudy [current limit 1000, needs pagination]
+#' @param url character(1) URL for a store
+#' @param count_str character(1) `_count` value for `where` in ResearchStudy
+#' @param pyrefs list of Module references (anvil, fhirclient)
+#' @param as.json logical(1) convert patient references to JSON before returning
+#' @return a list with two elements: first the title of the associated study, then the list of patients
+#' @examples
+#' xx = anv_fhir_test_list_patients(anvurl("phs001272-DS-CSD-MDS"))
+#' names(xx)
+#' xx$title
+#' length(xx$pats)
+#' @export
+anv_fhir_test_list_patients = function(url=anvurl(), count_str="1000", 
+              pyrefs=abfhir_demo(), as.json=FALSE) {
+  sm = connect_smart(fhirclient = pyrefs$anvil$fhir$client$FHIRClient, 
+                     fhirurl = url)
+  stopifnot(sm$ready)
+  rs = pyrefs$fhirclient$models$researchstudy$ResearchStudy
+  pp = pyrefs$fhirclient$models$patient$Patient
+  rsdat = rs$where(reticulate::py_dict("", ""))$perform_resources(sm$server)
+  ans = pp$where(reticulate::py_dict("_count", count_str))$perform_resources(sm$server)
+  if (as.json) ans = lapply(ans, function(x) x$as_json())
+  list(title=rsdat[[1]]$title, pats=ans)
+}

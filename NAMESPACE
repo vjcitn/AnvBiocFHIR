@@ -3,6 +3,7 @@
 export(abfhir_demo)
 export(anv_fhir_get_stores)
 export(anv_fhir_test_find_patient)
+export(anv_fhir_test_list_patients)
 export(anv_fhir_test_resources)
 export(anvurl)
 export(asymurl)
