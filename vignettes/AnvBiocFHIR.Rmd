@@ -22,6 +22,7 @@ FHIR resources in AnVIL.
 ```{r do1}
 library(AnvBiocFHIR)
 allst = list_stores()
+length(allst)
 head(allst)
 ```
 
