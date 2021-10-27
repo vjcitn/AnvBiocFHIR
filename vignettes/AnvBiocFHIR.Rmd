@@ -44,11 +44,50 @@ Methods for an instance.
 names(rgru[[1]])
 ```
 
-## Patients in a store
+## Patients in a FHIR store
+
+### Listing and counting
 
 ```{r dopats}
 p1 = anv_fhir_test_list_patients(anvurl("phs001272-DS-CSD-MDS"))
 p1$title
 length(p1$pats)
+names(p1$pats[[1]])
 ```
 
+There are many available fields, but few are actually populated.
+```{r lkfff}
+names(p1$pats[[1]]$as_json())
+```
+
+### Multicore operations
+
+We can dispatch to cluster nodes but must serialize all results
+before returning.  To illustrate we define a
+function that counts patients (up to 1000, until pagination
+is straightened out) in a store:
+
+```
+countpats = function (x) 
+{
+    y = anv_fhir_test_list_patients(anvurl(x))
+    ans = length(y$pats)
+    names(ans) = y$title
+    ans
+}
+```
+No python references are returned.
+
+
+We won't test this in this document, but this is a typical
+result:
+```
+> system.time(pp <- lapply(allst[2:5], countpats))
+   user  system elapsed 
+ 11.474   0.802  16.643 
+> library(parallel)
+> options(mc.cores=4)
+> system.time(pp2 <- mclapply(allst[2:5], countpats))
+   user  system elapsed 
+ 12.353   1.393   6.106 
+```
