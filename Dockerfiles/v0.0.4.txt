@@ -1,0 +1,18 @@
+#FROM us.gcr.io/anvil-gcr-public/anvil-rstudio-bioconductor-devel:3.14.2
+
+FROM vjcitn/anvbiocfhir:0.0.3
+
+RUN pip3 install pyAnVIL==0.0.10rc9 --upgrade
+
+RUN Rscript -e "BiocManager::install('vjcitn/AnvBiocFHIR', ask=FALSE, update=TRUE); library(AnvBiocFHIR); try(x <- abfhir_demo())"
+
+#
+## within the terra system, pip installs via miniconda seem to go in $HOME/.local
+##
+## we need to copy them to the place where basilisk will know about them
+#
+#RUN cp -r /root/.local/lib/python3.7/site-packages/* /root/.cache/R/basilisk/1.5.0/AnvBiocFHIR/0.0.1/abfhirenv/lib/python3.7/site-packages
+#
+## this will deal with the conda work by basilisk
+#
+#RUN Rscript -e "library(AnvBiocFHIR); abfhir_demo()"
