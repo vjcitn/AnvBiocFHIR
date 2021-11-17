@@ -27,7 +27,7 @@ a list with two elements: first the title of the associated study, then the list
 retrieve patients in a ResearchStudy [current limit 1000, needs pagination]
 }
 \examples{
-xx = anv_fhir_test_list_patients(anvurl("phs001272-DS-CSD-MDS"))
+xx = anv_fhir_test_list_patients(anvurl("public"))
 names(xx)
 xx$title
 length(xx$pats)

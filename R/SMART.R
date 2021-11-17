@@ -18,7 +18,7 @@ asymurl = function() "https://healthcare.googleapis.com/v1/projects/gcp-testing-
 #' sm$ready
 #' @export
 connect_smart = function(fhirclient, fhirurl = asymurl(), app_id="my_app") {
-   settings = list(app_id = app_id, api_base = fhirurl)
+   settings = list(app_id = app_id, api_bases = list(fhirurl))
    sm = fhirclient(settings = settings)
    if (!isTRUE(sm$ready)) message("'ready' was not TRUE, may need to retry when server warms up")
    sm
