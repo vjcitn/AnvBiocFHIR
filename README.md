@@ -13,7 +13,7 @@ to pin down all details of python infrastructure used to interface to the FHIR s
 
 ## Installation steps
 
-We use the docker container `vjcitn/anvbiocfhir:0.0.2`.
+We use the docker container `vjcitn/anvbiocfhir:0.0.4`.
 
 Update the version of `AnvBiocFHIR` with
 
@@ -23,13 +23,13 @@ BiocManager::install("vjcitn/AnvBiocFHIR")
 
 Instantiate the python infrastructure with
 ```
-x = try(AnvBiocFHIR::abfhir_demo()) # will fail after some time!
+x = try(AnvBiocFHIR::abfhir_demo()) # will fail after some time!  (This is a one-time operation for a given cloud environment.)
 ```
 This may take some time to construct a conda environment.  (As the infrastructure matures we will be able to skip this step, but not now.)
 
 Use (after verifying values of version tags)  the following in the Rstudio terminal:
 ```
-cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.5.0/AnvBiocFHIR/0.0.3/abfhirenv/lib/python3.7/site-packages
+cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.6.0/AnvBiocFHIR/0.0.3/abfhirenv/lib/python3.7/site-packages
 ```
 
 After this command is used in Rstudio terminal, return to console and use
