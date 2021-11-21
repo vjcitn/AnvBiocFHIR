@@ -29,7 +29,7 @@ This may take some time to construct a conda environment.  (As the infrastructur
 
 Use (after verifying values of version tags)  the following in the Rstudio terminal:
 ```
-cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.6.0/AnvBiocFHIR/0.0.3/abfhirenv/lib/python3.7/site-packages
+cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.6.0/AnvBiocFHIR/0.0.4/abfhirenv/lib/python3.7/site-packages
 ```
 
 After this command is used in Rstudio terminal, return to console and use
