@@ -60,7 +60,7 @@ res_100 = rs$ResearchStudy$where(reticulate::py_dict("", ""))$perform_resources(
 unlist(lapply(res_100[1:5], function(x) x$title))
 ```
 
-On 23 Oct 2021 the result is
+On 21 Nov 2021 the result is
 ```
 [1] "VIL-NIMH-Broad-ConvergentNeuro-McCarroll-Eggan-Finkel-SMA-DS-WGS"
 [2] "AnVIL-NIMH-Broad-WGSPD1-McCarroll-Braff-DS-10XLRGenomes"         
