@@ -46,7 +46,7 @@ of these operations.
 library(AnvBiocFHIR)
 dem = abfhir_demo()
 aurl = anvurl() # .../anvil-test/fhirStores/public/fhir
-sm = connect_smart(fhirclient=dem$anvil$fhir$client$FHIRClient, fhirurl=aurl) # clumsy, will design object later
+sm = connect_smart(fhirclient=dem$anvil$fhir$client$DispatchingFHIRClient, fhirurl=aurl) # clumsy, will design object later
 sm$ready # if FALSE, wait a bit and try again
 rs = dem$fhirclient$models$researchstudy
 #> names(rs)
