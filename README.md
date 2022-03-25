@@ -2,18 +2,22 @@
 
 FHIR interfaces via Bioconductor in AnVIL -- Terra workspace "biocfhir-new2" was introduced by stvjc@channing.harvard.edu October 2021.
 
+This README is updated 24 March 2022.
+
 A thorough introduction to FHIR in the NIH Cloud Interoperability project is provided in 
 a [jupyter notebook](https://github.com/NIH-NCPI/fhir-101/blob/master/FHIR%20101%20-%20Practical%20Guide.ipynb) last edited in July 2020.
 
-This workspace is intended to be used with a custom cloud environment to which pyAnVIL and SMART infrastructure have been added.
-Dockerfiles are [available](https://github.com/vjcitn/AnvBiocFHIR/tree/main/Dockerfiles).
+In the RStudio console, in March 2022, use
+```
+pip install pyAnVIL==0.0.11rc6
+pip install git+https://github.com/smart-on-fhir/client-py#egg=fhirclient
+```
+to obtain necessary infrastructure.
 
 The R package at [github.com/vjcitn/AnvBiocFHIR](https://github.com/vjcitn/AnvBiocFHIR) uses basilisk
 to pin down all details of python infrastructure used to interface to the FHIR services in AnVIL.
 
 ## Installation steps
-
-We use the docker container `vjcitn/anvbiocfhir:0.0.4`.
 
 Update the version of `AnvBiocFHIR` with
 
@@ -27,9 +31,9 @@ x = try(AnvBiocFHIR::abfhir_demo()) # will fail after some time!  (This is a one
 ```
 This may take some time to construct a conda environment.  (As the infrastructure matures we will be able to skip this step, but not now.)
 
-Use (after verifying values of version tags)  the following in the Rstudio terminal:
+Use (after verifying values of version tags; these work with Bioc 3.14 and AnvBiocFHIR 0.0.5) the following in the Rstudio terminal:
 ```
-cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.6.0/AnvBiocFHIR/0.0.4/abfhirenv/lib/python3.7/site-packages
+cp -r ~/.local/lib/python3.7/site-packages/* /home/rstudio/.cache/R/basilisk/1.6.0/AnvBiocFHIR/0.0.5/abfhirenv/lib/python3.7/site-packages
 ```
 
 After this command is used in Rstudio terminal, return to console and use
@@ -68,4 +72,3 @@ On 21 Nov 2021 the result is
 [4] "AnVIL-NIMH-Broad-ConvergentNeuro-McCarroll-Eggan-CIRM-GRU-WGS"   
 [5] "AnVIL-NIMH-Broad-WGSPD1-McCarroll-Pato-GRU-10XLRGenomes"
 ```
-with a possible typo in the first element.
