@@ -4,7 +4,7 @@
 \alias{anvurl}
 \title{long URL string for server announced at https://the-anvil.slack.com/archives/C02HU4GT04B/p1634236625021500}
 \usage{
-anvurl(tag = "public")
+anvurl(tag = "public", project_tag = "fhir-test-16-342800")
 }
 \arguments{
 \item{tag}{character(1) name of store, defaults to "public"}

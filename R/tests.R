@@ -35,7 +35,7 @@ anv_fhir_test_find_patient = function(url = anvurl(), id = "H_WX-999-999", pyref
 
 #' URL for fhirStores FHIR structure
 #' @export
-test_stores_url = function() "https://healthcare.googleapis.com/v1beta1/projects/fhir-test-9-328816/locations/us-west2/datasets/anvil-test/fhirStores"
+test_stores_url = function() "https://healthcare.googleapis.com/v1beta1/projects/fhir-test-16-342800/locations/us-west2/datasets/anvil-test/fhirStores"
 
 #' retrieve references to all stores
 #' @importFrom httr GET
