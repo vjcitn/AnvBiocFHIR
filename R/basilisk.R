@@ -1,7 +1,7 @@
 # necessary for python module control
 abfhirenv <- basilisk::BasiliskEnvironment(envname="abfhirenv",
     pkgname="AnvBiocFHIR", packages="pandas==1.0.3",
-    pip=c("pyAnVIL==0.0.10rc9", "git+https://github.com/smart-on-fhir/client-py#egg=fhirclient==4.0.0"))
+    pip=c("pyAnVIL==0.0.13rc13", "git+https://github.com/smart-on-fhir/client-py#egg=fhirclient==4.0.0"))
 
 
 #' demonstrate object mediation

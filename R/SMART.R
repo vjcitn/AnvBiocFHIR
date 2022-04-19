@@ -18,6 +18,13 @@ asymurl = function() "https://healthcare.googleapis.com/v1/projects/gcp-testing-
 #' sm$ready
 #' @export
 connect_smart = function(fhirclient, fhirurl = asymurl(), app_id="my_app") {
+#
+# FIXME: Here is where a list of 'stores' can be used to prepare access to 
+# many resources, and a shiny app would be useful.  Consider three levels
+# of user contact: tech, which interacts with pyAnVIL, app developer,
+# which connects app with investigational objectives, and "user/programmer"
+# running interactive sessions in Rstudio
+#
    settings = list(app_id = app_id, api_bases = list(fhirurl))
    sm = fhirclient(settings = settings)
    if (!isTRUE(sm$ready)) message("'ready' was not TRUE, may need to retry when server warms up")
