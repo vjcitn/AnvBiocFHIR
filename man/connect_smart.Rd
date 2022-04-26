@@ -5,7 +5,7 @@
 \title{use pyAnVIL/SMART python infrastructure to connect to FHIR server, 
 producing instance of `anvil.fhir.client.FHIRClient` (basilisk/reticulate python.builtin.object instance)}
 \usage{
-connect_smart(fhirclient, fhirurl = asymurl(), app_id = "my_app")
+connect_smart(fhirclient, fhirurls = list(anvurl()), app_id = "my_app")
 }
 \arguments{
 \item{fhirclient}{from pyAnVIL and/or https://github.com/smart-on-fhir/client-py, assumed to be generated via `abfhir_demo()` in anvil
@@ -17,6 +17,10 @@ producing instance of `anvil.fhir.client.FHIRClient` (basilisk/reticulate python
 }
 \examples{
 dem = abfhir_demo()
-sm = connect_smart(dem$anvil$fhir$client$FHIRClient) # clumsy!
+sm = connect_smart(dem$anvil$fhir$client$DispatchingFHIRClient) # can handle list of stores
 sm$ready
+avail_resch = dem$fhirclient$models$researchstudy
+res = avail_resch$ResearchStudy$where(reticulate::py_dict("", ""))$perform_resources(sm$server)
+length(res)
+unlist(lapply(res[1:5], function(x) x$id))
 }

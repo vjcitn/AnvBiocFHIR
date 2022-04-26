@@ -12,3 +12,6 @@ anvurl(tag = "public", project_tag = "fhir-test-16-342800")
 \description{
 long URL string for server announced at https://the-anvil.slack.com/archives/C02HU4GT04B/p1634236625021500
 }
+\note{
+need to ensure project_tag is appropriate over time
+}
