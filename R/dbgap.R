@@ -29,3 +29,11 @@ consent_codes = function() {
 #' @export
 phs2json = function (phstag = "phs001227") jsonlite::fromJSON(sprintf("https://dbgap-api.ncbi.nlm.nih.gov/fhir/x1/ResearchStudy?_id=%s&_format=json", 
     phstag))
+
+#' use FHIR API to get description from a resource (possibly resident in AnVIL), using ResearchStudy id
+#' @param phstag character(1) defaults to "phs001227"
+#' @export
+phs_desc = function (x="phs001227") 
+{
+    phs2json(x)$entry$resource$description
+}
