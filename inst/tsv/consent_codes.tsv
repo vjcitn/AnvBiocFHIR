@@ -1,0 +1,23 @@
+Name	Abbreviation	Description
+No restrictions	NRES	No restrictions on data use.
+General research use and clinical care	GRU(CC)	For health/medical/biomedical purposes, including the study of population origins or ancestry.
+Health/medical/biomedical research and clinical care	HMB(CC)	Use of the data is limited to health/medical/biomedical purposes; does not include the study of population origins or ancestry.
+Disease-specific research and clinical care	DS-[XX](CC)	Use of the data must be related to [disease].
+Population origins/ancestry research	POA	Use of the data is limited to the study of population origins or ancestry.
+Secondary Categories (IIry) (can be one or more extra conditions, in addition to Iry category)
+Oher research-specific restrictions	RS-[XX]	Use of the data is limited to studies of [research type] (e.g., pediatric research).
+Research use only	RUO	Use of data is limited to research purposes (e.g., does not include its use in clinical care).
+No “general methods” research	NMDS	Use of the data includes methods development research (e.g., development of software or algorithms) ONLY within the bounds of other data use limitations.
+Genetic studies only	GSO	Use of the data is limited to genetic studies only (i.e., no “phenotype-only” research).
+Requirements
+Not-for-profit use only	NPU	Use of the data is limited to not-for-profit organizations.
+Publication required	PUB	Requestor agrees to make results of studies using the data available to the larger scientific community.
+Collaboration required	COL-[XX]	Requestor must agree to collaboration with the primary study investigator(s).
+Ethics approval required	IRB	Requestor must provide documentation of local IRB/REC approval.
+Geographical restrictions	GS-[XX]	Use of the data is limited to within [geographic region].
+Publication moratorium/embargo	MOR-[XX]	Requestor agrees not to publish results of studies until [date].
+Time limits on use	TS-[XX]	Use of data is approved for [x months].
+User-specific restrictions	US	Use of data is limited to use by approved users.
+Project-specific restrictions	PS	Use of data is limited to use within an approved project.
+Institution-specific restrictions	IS	Use of data is limited to use within an approved institution.
+
