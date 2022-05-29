@@ -7,7 +7,7 @@ a [jupyter notebook](https://github.com/NIH-NCPI/fhir-101/blob/master/FHIR%20101
 
 In the RStudio console, in May 2022, use
 ```
-pip install pyAnVIL==0.1.1rc1
+pip install pyAnVIL==0.1.1rc2
 pip install git+https://github.com/smart-on-fhir/client-py#egg=fhirclient==4.0.0
 ```
 to obtain necessary infrastructure.
