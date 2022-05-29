@@ -1,23 +1,20 @@
 # AnvBiocFHIR
 
-This README is updated 17 May 2022.
+This README is updated 29 May 2022.
 
 A thorough introduction to FHIR in the NIH Cloud Interoperability project is provided in 
 a [jupyter notebook](https://github.com/NIH-NCPI/fhir-101/blob/master/FHIR%20101%20-%20Practical%20Guide.ipynb) last edited in July 2020.
-
-In the RStudio console, in May 2022, use
-```
-pip install pyAnVIL==0.1.1rc1
-pip install git+https://github.com/smart-on-fhir/client-py#egg=fhirclient==4.0.0
-```
-to obtain necessary infrastructure.
 
 The R package at [github.com/vjcitn/AnvBiocFHIR](https://github.com/vjcitn/AnvBiocFHIR) uses basilisk
 to pin down all details of python infrastructure used to interface to the FHIR services in AnVIL.
 
 ## Installation steps
 
-Update the version of `AnvBiocFHIR` with
+Ensure that the .Renviron file in the home folder has a line `PIP_USER=false`.
+
+Verify that the setting of `PIP_USER` is `"false"` using `Sys.getenv("PIP_USER")`.
+
+Install the package:
 
 ```
 BiocManager::install("vjcitn/AnvBiocFHIR")
@@ -25,22 +22,11 @@ BiocManager::install("vjcitn/AnvBiocFHIR")
 
 Instantiate the python infrastructure with
 ```
-x = try(AnvBiocFHIR::abfhir_demo()) # will fail after some time!  (This is a one-time operation for a given cloud environment.)
+x = try(AnvBiocFHIR::abfhir_demo()) 
 ```
-This may take some time to construct a conda environment.  (As the infrastructure matures we will be able to skip this step, but not now.)
+This will take some time to construct a conda environment.  
 
-Use (after verifying values of version tags; these work with Bioc 3.14 and AnvBiocFHIR 0.0.11) the following in the Rstudio terminal:
-```
-cp -r ~/.local/lib/python3.7/site-packages/*  /home/rstudio/.cache/R/basilisk/1.8.0/AnvBiocFHIR/0.0.11/abfhirenv/lib/python3.7/site-packages
-```
-
-After this command is used in Rstudio terminal, return to console and use
-```
-x = try(AnvBiocFHIR::abfhir_demo())
-```
-Because the python infrastructure migrated to the basilisk cache, this should now succeed.  We will try to reduce the complexity
-of these operations.
-
+Evaluate `x` to see a list of two `Module` objects produced by reticulate.
 
 ## Demonstration
 
@@ -49,7 +35,7 @@ library(AnvBiocFHIR)
 example(connect_smart)
 ```
 
-On 26 Apr 2022 the result is
+On 29 May 2022 the result is
 ```
 > unlist(lapply(res[1:5], function(x) x$id))
 [1] "AnVIL-CMG-Broad-Muscle-Myoseq-WES"       
