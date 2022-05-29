@@ -5,6 +5,13 @@ This README is updated 29 May 2022.
 A thorough introduction to FHIR in the NIH Cloud Interoperability project is provided in 
 a [jupyter notebook](https://github.com/NIH-NCPI/fhir-101/blob/master/FHIR%20101%20-%20Practical%20Guide.ipynb) last edited in July 2020.
 
+In the RStudio console, in May 2022, use
+```
+pip install pyAnVIL==0.1.1rc2
+pip install git+https://github.com/smart-on-fhir/client-py#egg=fhirclient==4.0.0
+```
+to obtain necessary infrastructure.
+
 The R package at [github.com/vjcitn/AnvBiocFHIR](https://github.com/vjcitn/AnvBiocFHIR) uses basilisk
 to pin down all details of python infrastructure used to interface to the FHIR services in AnVIL.
 
