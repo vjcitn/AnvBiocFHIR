@@ -4,8 +4,14 @@
 \alias{abfhir_demo}
 \title{demonstrate object mediation}
 \usage{
-abfhir_demo()
+abfhir_demo(use_basilisk = FALSE)
+}
+\arguments{
+\item{use_basilisk}{logical(1) defaults to FALSE, to speed up production of interface}
 }
 \description{
 demonstrate object mediation
+}
+\note{
+Use basilisk when you want to pin python module versions explicitly
 }

@@ -5,8 +5,12 @@ abfhirenv <- basilisk::BasiliskEnvironment(envname="abfhirenv",
 
 
 #' demonstrate object mediation
+#' @param use_basilisk logical(1) defaults to FALSE, to speed up production of interface
+#' @note Use basilisk when you want to pin python module versions explicitly
 #' @export
-abfhir_demo = function() {
+abfhir_demo = function(use_basilisk=FALSE) {
+ if (!use_basilisk) 
+   return(list(anvil=reticulate::import("anvil"), fhirclient=reticulate::import("fhirclient")))
  proc = basilisk::basiliskStart(abfhirenv)
  on.exit(basilisk::basiliskStop(proc))
  basilisk::basiliskRun(proc, function() {
