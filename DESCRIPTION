@@ -1,6 +1,6 @@
 Package: AnvBiocFHIR
 Title: Use pyAnVIL and SMART infrastructure to work with AnVIL FHIR in R
-Version: 0.0.12
+Version: 0.0.13
 Date: 2022-05-30
 Authors@R:
     person(given = "Vince",
